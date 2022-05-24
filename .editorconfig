@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# RCS1102: Make class static.
+dotnet_diagnostic.RCS1102.severity = silent
