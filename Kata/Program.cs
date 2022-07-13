@@ -6,11 +6,12 @@ using System.Linq;
 
 namespace Kata
 {
-    public class Kata
+    public static class Kata
     {
         private static void Main(string[] args)
         {
-            Middle_Permutation.MiddlePermutation("drtuqjfvwhgcmyoanlzsipbxek");
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
         }
     }
 }
