@@ -14,7 +14,7 @@ namespace Kata.Classes
     }
 
     [TestFixture]
-    public class ExampleTests
+    public class HighAndLowTests
     {
         [Test]
         public void Test1()

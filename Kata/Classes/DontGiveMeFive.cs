@@ -4,7 +4,7 @@ using System.Linq;
 namespace Kata.Classes
 {
     [TestFixture]
-    public class KataTests
+    public class DontGiveMeFiveTests
     {
         [Test]
         public void ExampleTests()

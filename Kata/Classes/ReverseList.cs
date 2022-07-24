@@ -5,7 +5,7 @@ using System.Linq;
 namespace Kata.Classes
 {
     [TestFixture]
-    public class SolutionTest
+    public class ReverseListTest
     {
         [Test]
         public void MyTest()
