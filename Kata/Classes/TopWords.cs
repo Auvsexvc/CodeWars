@@ -44,8 +44,7 @@ namespace Kata.Classes
                 .Distinct()
                 .ToDictionary(k => k, v => Regex
                     .Matches(string.Concat(s.Select(c => char.IsPunctuation(c) && c != '\'' ? ' ' : c)), @"\'?\b(?:[^\d\W_]|['][^\d\W])+\b\'?", RegexOptions.IgnoreCase)
-                    .Where(m => m.Value.ToLower().Equals(v))
-                    .Count())
+                    .Count(m => m.Value.ToLower().Equals(v)))
                 .OrderByDescending(d => d.Value)
                 .Take(3)
                 .Select(d => d.Key)
