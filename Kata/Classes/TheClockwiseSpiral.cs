@@ -1,12 +1,41 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kata.Classes
 {
+    [TestFixture]
+    public class TheClockwiseSpiralTest
+    {
+        [Test]
+        public void Test1()
+        {
+            var expected = new int[,] { { 1 } };
+            Assert.AreEqual(expected, TheClockwiseSpiral.CreateSpiral(1));
+        }
+
+        [Test]
+        public void Test2()
+        {
+            var expected = new int[,]
+            {
+            {1, 2},
+            {4, 3},
+            };
+            Assert.AreEqual(expected, TheClockwiseSpiral.CreateSpiral(2));
+        }
+
+        [Test]
+        public void Test3()
+        {
+            var expected = new int[,]
+            {
+            {1, 2, 3},
+            {8, 9, 4},
+            {7, 6, 5}
+            };
+            Assert.AreEqual(expected, TheClockwiseSpiral.CreateSpiral(3));
+        }
+    }
+
     internal class TheClockwiseSpiral
     {
         public static int[,] CreateSpiral(int n)
@@ -29,38 +58,6 @@ namespace Kata.Classes
             }
 
             return ret;
-        }
-    }
-
-    [TestFixture]
-    public class TheClockwiseSpiralTest
-    {
-        [Test]
-        public void Test1()
-        {
-            var expected = new int[,] { { 1 } };
-            Assert.AreEqual(expected, TheClockwiseSpiral.CreateSpiral(1));
-        }
-        [Test]
-        public void Test2()
-        {
-            var expected = new int[,]
-            {
-            {1, 2},
-            {4, 3},
-            };
-            Assert.AreEqual(expected, TheClockwiseSpiral.CreateSpiral(2));
-        }
-        [Test]
-        public void Test3()
-        {
-            var expected = new int[,]
-            {
-            {1, 2, 3},
-            {8, 9, 4},
-            {7, 6, 5}
-            };
-            Assert.AreEqual(expected, TheClockwiseSpiral.CreateSpiral(3));
         }
     }
 }
