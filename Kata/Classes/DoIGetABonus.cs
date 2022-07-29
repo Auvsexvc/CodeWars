@@ -1,18 +1,7 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kata.Classes
 {
-    internal class DoIGetABonus
-    {
-        public static string bonus_time(int salary, bool bonus) =>
-            bonus ? $"${salary * 10}" : $"${salary}";
-    }
-
     [TestFixture]
     public class DoIGetABonusTest
     {
@@ -27,5 +16,11 @@ namespace Kata.Classes
             StringAssert.AreEqualIgnoringCase("$78", DoIGetABonus.bonus_time(78, false));
             StringAssert.AreEqualIgnoringCase("$678900", DoIGetABonus.bonus_time(67890, true));
         }
+    }
+
+    internal class DoIGetABonus
+    {
+        public static string bonus_time(int salary, bool bonus) =>
+            bonus ? $"${salary * 10}" : $"${salary}";
     }
 }
