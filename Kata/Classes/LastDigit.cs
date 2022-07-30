@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Numerics;
 
-namespace Kata
+namespace Kata.Classes
 {
     [TestFixture]
-    public class SolutionTest
+    public class LastDigitTest
     {
         [Test]
         public void ExampleTests()
