@@ -8,6 +8,11 @@ namespace Kata
 {
     public static class Extensions
     {
+        public static bool IsPrime(this int n)
+        {
+            return n > 1 && Enumerable.Range(2, (int)Math.Sqrt(n) - 1).All(i => n % i != 0);
+        }
+
         public static char[] PermuteNTimes(this char[] str, int n)
         {
             int i = 1;
