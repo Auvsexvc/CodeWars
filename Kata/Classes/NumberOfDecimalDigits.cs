@@ -1,17 +1,7 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kata.Classes
 {
-    internal class NumberOfDecimalDigits
-    {
-        public static int Digits(ulong n) => n.ToString("D").Length;
-    }
-
     [TestFixture]
     public class SampleTests
     {
@@ -22,5 +12,10 @@ namespace Kata.Classes
             Assert.AreEqual(5, NumberOfDecimalDigits.Digits(12345ul));
             Assert.AreEqual(10, NumberOfDecimalDigits.Digits(9876543210ul));
         }
+    }
+
+    internal static class NumberOfDecimalDigits
+    {
+        public static int Digits(ulong n) => n.ToString("D").Length;
     }
 }
