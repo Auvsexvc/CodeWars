@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Kata.Classes
 {
@@ -8,6 +9,9 @@ namespace Kata.Classes
     {
         public static bool Alphanumeric(string str) =>
             str.Length > 0 && str.Count(char.IsLetterOrDigit) == str.Length;
+
+        public static bool AlphanumericReg(string str) =>
+            new Regex("^[a-zA-Z0-9]+$").Match(str).Success;
     }
 
     [TestFixture]
