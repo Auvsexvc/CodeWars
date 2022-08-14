@@ -7,19 +7,10 @@ namespace Kata.Classes
     {
         public static BigInteger S(BigInteger m, BigInteger n)
         {
-            BigInteger sum = BigInteger.Zero;
+            BigInteger sum = 1;
 
-            if (m == 0) return 1;
-
-            while (m > 0)
-            {
-                for (int k = 0; k < (int)n; k++)
-                {
-                    sum += S(m - 1, k);
-                    System.Console.WriteLine($"{m},{n},({k}), {sum}");
-                }
-                m--;
-            }
+            for (BigInteger k = 0; k < m; k++)
+                sum = (sum * (n + k)) / (1 + k);
 
             return sum;
         }
