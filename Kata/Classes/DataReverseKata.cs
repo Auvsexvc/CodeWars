@@ -8,7 +8,7 @@ namespace Kata.Classes
     public static class DataReverseKataTests
     {
         [Test]
-        public static void test1()
+        public static void Test1()
         {
             int[] data1 = new int[32] { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0 };
             int[] data2 = new int[32] { 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 };
@@ -16,7 +16,7 @@ namespace Kata.Classes
         }
 
         [Test]
-        public static void test2()
+        public static void Test2()
         {
             int[] data1 = new int[16] { 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1 };
             int[] data2 = new int[16] { 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0 };
@@ -24,7 +24,7 @@ namespace Kata.Classes
         }
     }
 
-    public class DataReverseKata
+    public static class DataReverseKata
     {
         public static int[] DataReverse(int[] data)
         {
