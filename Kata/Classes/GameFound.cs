@@ -11,12 +11,12 @@ namespace Kata.Classes
             return words.Where(w => w.Length >= prefixLength).Select(w => w.Substring(0, prefixLength)).Distinct();
         }
 
-        public static void Main(string[] args)
-        {
-            // Should print "flo", "fle", and "fla" since those are the distinct, length 3 prefixes.
-            foreach (var p in AllPrefixes(3, new string[] { "flow", "flowers", "flew", "flag", "fm" }))
-                Console.WriteLine(p);
-        }
+        //public static void Main(string[] args)
+        //{
+        //    // Should print "flo", "fle", and "fla" since those are the distinct, length 3 prefixes.
+        //    foreach (var p in AllPrefixes(3, new string[] { "flow", "flowers", "flew", "flag", "fm" }))
+        //        Console.WriteLine(p);
+        //}
     }
 
     public class Product
