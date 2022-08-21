@@ -10,12 +10,6 @@ namespace Kata.Classes
     {
         public List<string> Sort(List<string> unsortedTitles)
         {
-            foreach (var item in unsortedTitles)
-            {
-                Console.Write(item+", ");
-            }
-            Console.WriteLine();
-            var y = unsortedTitles.Select(s => s.Split(" ")).ToList();
             var x= unsortedTitles != null
                 ? unsortedTitles
                     .OrderBy(x => Regex.IsMatch(x, @"^((A|An|The)\b)") && x.Split(" ").Length > 1 && x.Split(" ").All(x=>x!="")
