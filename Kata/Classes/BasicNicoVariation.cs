@@ -10,6 +10,7 @@ namespace Kata.Classes
         [Test]
         public void SampleNico()
         {
+            Assert.AreEqual("fjv6ond14j9pzp08cqqn4bkg4bwjd2gm7zeh  c   ux a  b 7 r ", BasicNicoVariation.Nico("gvjx6sflw0zthc7b3m", "10jcvzd98fqp4n6ojpb7je4g4dzqhmwgbkn2x7arcbu"));
             Assert.AreEqual("cseerntiofarmit on  ", BasicNicoVariation.Nico("crazy", "secretinformation"));
             Assert.AreEqual("message", BasicNicoVariation.Nico("a", "message"));
             Assert.AreEqual("eky", BasicNicoVariation.Nico("key", "key"));
@@ -31,7 +32,7 @@ namespace Kata.Classes
 
             var g = Enumerable
                 .Range(0, message.Length % key.Length != 0 ? message.Length + (key.Length - (message.Length % key.Length)) : message.Length)
-                .GroupBy(r => (Chr: r < message.Length ? message[r] : ' ', Pos: nKey.Skip(r % nKey.Count()).First().NewIdx + ((r / nKey.Count()) * (nKey.Count() - 1))))
+                .GroupBy(r => (I: r, Chr: r < message.Length ? message[r] : ' ', Pos: nKey.Skip(r % nKey.Count()).First().NewIdx + ((r / nKey.Count()) * (nKey.Count() - 1))))
                 .OrderBy(r => r.Key.Pos);
 
             return string.Concat(g.Select(g => g.Key.Chr));
