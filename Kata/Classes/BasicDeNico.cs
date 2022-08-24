@@ -20,7 +20,7 @@ namespace Kata.Classes
 
             var g = Enumerable
                 .Range(0, message.Length % key.Length != 0 ? message.Length + (key.Length - (message.Length % key.Length)) : message.Length)
-                .GroupBy(r => (Chr: r < message.Length ? message[r] : ' ', Pos: nKey.Skip(r % nKey.Count()).First() + ((r / nKey.Count()) * (nKey.Count() - 1))))
+                .GroupBy(r => (I: r, Chr: r < message.Length ? message[r] : ' ', Pos: nKey.Skip(r % nKey.Count()).First() + ((r / nKey.Count()) * (nKey.Count() - 1))))
                 .OrderBy(x=>x.Key.Pos);
 
 
