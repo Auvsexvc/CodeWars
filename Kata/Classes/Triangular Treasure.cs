@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// Triangular numbers are so called because of the equilateral triangular shape that they occupy when laid out as dots.

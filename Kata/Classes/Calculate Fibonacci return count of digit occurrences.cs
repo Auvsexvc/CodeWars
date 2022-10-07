@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// Your task is to efficiently calculate the nth element in the Fibonacci sequence and then count the occurrence of each digit in the number. Return a list of integer pairs sorted in descending order.

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// The function parts_sums (or its variants in other languages) will take as parameter a list ls and return a list of the sums of its parts.

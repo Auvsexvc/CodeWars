@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 
-namespace OddOrEvenKata.Classes
+namespace Kata.Classes
 {
     public class OddOrEvenKata
     {

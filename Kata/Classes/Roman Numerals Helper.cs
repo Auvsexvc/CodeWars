@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     internal class Roman_Numerals_Helper
     {

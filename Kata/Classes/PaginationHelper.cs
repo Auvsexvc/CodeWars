@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// For this exercise you will be strengthening your page-fu mastery. You will complete the PaginationHelper class, which is a utility class helpful for querying paging information related to an array.
@@ -26,7 +26,7 @@ namespace Kata.Classes.Unfinished
             {
                 _itemCount = collection.Count;
                 _itemsPerPage = itemsPerPage;
-                _pageCount = (int)Math.Ceiling((double)collection.Count/ _itemsPerPage);
+                _pageCount = (int)Math.Ceiling((double)collection.Count / _itemsPerPage);
             }
 
             /// <summary>
@@ -44,16 +44,16 @@ namespace Kata.Classes.Unfinished
             /// </summary>
             /// <param name="pageIndex">The zero-based page index to get the number of items for</param>
             /// <returns>The number of items on the specified page or -1 for pageIndex values that are out of range</returns>
-            public int PageItemCount(int pageIndex) => (pageIndex < 0 || pageIndex > PageCount - 1) ? -1 : (pageIndex == PageCount-1 ? ItemCount - pageIndex * _itemsPerPage : _itemsPerPage);
-            
+            public int PageItemCount(int pageIndex) => pageIndex < 0 || pageIndex > PageCount - 1 ? -1 : pageIndex == PageCount - 1 ? ItemCount - pageIndex * _itemsPerPage : _itemsPerPage;
+
 
             /// <summary>
             /// Returns the page index of the page containing the item at the given item index.
             /// </summary>
             /// <param name="itemIndex">The zero-based index of the item to get the pageIndex for</param>
             /// <returns>The zero-based page index of the page containing the item at the given item index or -1 if the item index is out of range</returns>
-            public int PageIndex(int itemIndex) => (itemIndex < 0 || itemIndex > ItemCount - 1) ? -1 : (int)Math.Floor(itemIndex / (double)_itemsPerPage);
-            
+            public int PageIndex(int itemIndex) => itemIndex < 0 || itemIndex > ItemCount - 1 ? -1 : (int)Math.Floor(itemIndex / (double)_itemsPerPage);
+
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Kata.Classes
                 {
                     sb.Insert(0, msg[index]);
                     delta += 4;
-                    index += delta;
+                    index += sb.Length * 4;
                 }
 
                 return sb.ToString();

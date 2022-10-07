@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// Your task is to sum the differences between consecutive pairs in the array in descending order.

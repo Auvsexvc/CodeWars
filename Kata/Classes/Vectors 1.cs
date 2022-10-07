@@ -8,7 +8,7 @@ using static Kata.Classes.TDD_Area_Calculations;
 using static System.Formats.Asn1.AsnWriter;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// ##Let's make this short!
@@ -38,7 +38,7 @@ namespace Kata.Classes.Unfinished
             public double X { get; set; }
             public double Y { get; set; }
             public double Z { get; set; }
-            public double Length { get => Math.Sqrt(Math.Pow(X,2) + Math.Pow(Y, 2) + Math.Pow(Z, 2)); }
+            public double Length { get => Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2) + Math.Pow(Z, 2)); }
         }
     }
 }

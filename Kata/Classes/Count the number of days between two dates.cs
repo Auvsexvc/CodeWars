@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// Count the number of days between two dates:

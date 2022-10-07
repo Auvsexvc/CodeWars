@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Kata.Classes.Unfinished
+namespace Kata.Classes
 {
     /// <summary>
     /// Create a poker hand that has a method to compare itself to another poker hand:
@@ -45,9 +45,9 @@ namespace Kata.Classes.Unfinished
 
             public Result CompareWith(PokerHand hand)
             {
-                if(this.CompareTo(hand) == -1)
+                if (CompareTo(hand) == -1)
                     return Result.Win;
-                if(this.CompareTo(hand) == 1)
+                if (CompareTo(hand) == 1)
                     return Result.Loss;
                 return Result.Tie;
             }
@@ -65,7 +65,7 @@ namespace Kata.Classes.Unfinished
                 else if (IsStraightLow()) _rank += 400000;
                 else if (IsThreeOfAKind()) _rank += 300000;
                 else if (IsTwoPairs()) _rank += 200000;
-                else if (IsPair()) _rank += 100000 + 10 * (this._handCards.Select(c => c.Value).Sum() - this._handCards.Select(c => c.Value).Distinct().Sum());
+                else if (IsPair()) _rank += 100000 + 10 * (_handCards.Select(c => c.Value).Sum() - _handCards.Select(c => c.Value).Distinct().Sum());
                 else
                 {
                     _rank = 0;
@@ -74,7 +74,7 @@ namespace Kata.Classes.Unfinished
                     {
                         if (i == 0) _rank += tmp[i] * 5;
                         else
-                            _rank += (tmp[i] * (6 - i)) / ((tmp[i - 1] - tmp[i]) * (i));
+                            _rank += tmp[i] * (6 - i) / ((tmp[i - 1] - tmp[i]) * i);
                     }
                 }
             }
@@ -83,52 +83,52 @@ namespace Kata.Classes.Unfinished
                 hand.Split(" ").Select(c => new Card(c)).ToList();
 
             public bool IsPair() =>
-                this._handCards.Select(c => c.Value).Distinct().Count() == this._handCards.Count() - 1
-                    && this._handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 2);
+                _handCards.Select(c => c.Value).Distinct().Count() == _handCards.Count() - 1
+                    && _handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 2);
 
             public bool IsTwoPairs() =>
-                this._handCards.Select(c => c.Value).Distinct().Count() == this._handCards.Count() - 2
-                    && this._handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 2);
+                _handCards.Select(c => c.Value).Distinct().Count() == _handCards.Count() - 2
+                    && _handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 2);
 
             public bool IsThreeOfAKind() =>
-                this._handCards.Select(c => c.Value).Distinct().Count() == this._handCards.Count() - 2
-                    && this._handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 3);
+                _handCards.Select(c => c.Value).Distinct().Count() == _handCards.Count() - 2
+                    && _handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 3);
 
             public bool IsStraightLow() =>
-                this._handCards.Select(c => c.Value).Distinct().Count() == this._handCards.Count()
-                    && (_handCards.Where(c => c.Value == 14).Count() == 1 && _handCards.Where(c => c.Value != 14).Select(c => c.Value).Max() == 5 && _handCards.Select(c => c.Value).Min() == 2);
+                _handCards.Select(c => c.Value).Distinct().Count() == _handCards.Count()
+                    && _handCards.Where(c => c.Value == 14).Count() == 1 && _handCards.Where(c => c.Value != 14).Select(c => c.Value).Max() == 5 && _handCards.Select(c => c.Value).Min() == 2;
 
             public bool IsStraight() =>
-                this._handCards.Select(c => c.Value).Distinct().Count() == this._handCards.Count()
-                    && this._handCards.Select(c => c.Value).Max() - this._handCards.Select(c => c.Value).Min() == 4;
+                _handCards.Select(c => c.Value).Distinct().Count() == _handCards.Count()
+                    && _handCards.Select(c => c.Value).Max() - _handCards.Select(c => c.Value).Min() == 4;
 
             public bool IsFlush() =>
-                this._handCards.Select(c => c.Value).Distinct().Count() == this._handCards.Count()
-                && this._handCards.Select(c => c.Suit).Distinct().Count() == 1;
+                _handCards.Select(c => c.Value).Distinct().Count() == _handCards.Count()
+                && _handCards.Select(c => c.Suit).Distinct().Count() == 1;
 
             public bool IsFullHouse() =>
-                this._handCards.Select(c => c.Value).Distinct().Count() == this._handCards.Count() - 3;
+                _handCards.Select(c => c.Value).Distinct().Count() == _handCards.Count() - 3;
 
             public bool IsFourOfAKind() =>
-                this._handCards.Distinct().Count() == this._handCards.Count() - 3
-                    && this._handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 4);
+                _handCards.Distinct().Count() == _handCards.Count() - 3
+                    && _handCards.Select(c => c.Value).Distinct().Any(c => _handCards.Where(d => d.Value == c).Count() == 4);
 
             public bool IsStraightFlushLow() =>
-                this._handCards.Select(c => c.Suit).Distinct().Count() == 1
-                    && (_handCards.Where(c => c.Value == 14).Count() == 1 && _handCards.Where(c => c.Value != 14).Select(c => c.Value).Max() == 5 && _handCards.Select(c => c.Value).Min() == 2);
+                _handCards.Select(c => c.Suit).Distinct().Count() == 1
+                    && _handCards.Where(c => c.Value == 14).Count() == 1 && _handCards.Where(c => c.Value != 14).Select(c => c.Value).Max() == 5 && _handCards.Select(c => c.Value).Min() == 2;
 
             public bool IsStraightFlush() =>
-                this._handCards.Select(c => c.Value).Max() - this._handCards.Select(c => c.Value).Min() == 4
-                    && this._handCards.Select(c => c.Suit).Distinct().Count() == 1;
+                _handCards.Select(c => c.Value).Max() - _handCards.Select(c => c.Value).Min() == 4
+                    && _handCards.Select(c => c.Suit).Distinct().Count() == 1;
 
             public bool IsRoyalFlush() =>
-                this._handCards.Select(c => c.Value).Sum() == 60
-                    && this._handCards.Select(c => c.Suit).Distinct().Count() == 1;
+                _handCards.Select(c => c.Value).Sum() == 60
+                    && _handCards.Select(c => c.Suit).Distinct().Count() == 1;
 
             public int CompareTo(PokerHand other)
             {
-                if (this.Rank > other.Rank) return -1;
-                if (this.Rank == other.Rank) return 0;
+                if (Rank > other.Rank) return -1;
+                if (Rank == other.Rank) return 0;
                 return 1;
             }
 

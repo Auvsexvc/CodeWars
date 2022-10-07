@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Kata
+namespace Kata.Classes
 {
     /// <summary>
     /// Create a function taking a positive integer as its parameter and returning a string containing the Roman Numeral representation of that integer.
@@ -25,11 +25,11 @@ namespace Kata
             for (int i = 0; i < arabicComponents.Count; i++)
             {
                 int multiplier = 1;
-                if ((int)Math.Pow(10, arabicComponents.Count - i - 1) < Int32.Parse(arabicComponents[i])) multiplier = Int32.Parse(arabicComponents[i]) / (int)Math.Pow(10, arabicComponents.Count - i - 1);
+                if ((int)Math.Pow(10, arabicComponents.Count - i - 1) < int.Parse(arabicComponents[i])) multiplier = int.Parse(arabicComponents[i]) / (int)Math.Pow(10, arabicComponents.Count - i - 1);
 
                 foreach (var element in romanDict)
                 {
-                    if (Int32.Parse(arabicComponents[i]) / multiplier == element.Key)
+                    if (int.Parse(arabicComponents[i]) / multiplier == element.Key)
                     {
                         int multiplierRest = multiplier;
                         if (multiplier >= 9)
