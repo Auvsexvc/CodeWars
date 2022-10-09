@@ -10,7 +10,7 @@ namespace Kata.Classes
         public class ProdFib
         {
 
-            public static ulong[] productFib(ulong prod)
+            public static ulong[] productFib2(ulong prod)
             {
 
                 ulong prev = 0;
@@ -28,7 +28,7 @@ namespace Kata.Classes
                 return new ulong[] { prev, curr, multiplied == prod ? 1UL : 0 };
 
             }
-            public static ulong[] productFib2(ulong prod)
+            public static ulong[] productFib(ulong prod)
             {
                 ulong sqrt = (ulong)Math.Sqrt(prod);
                 ulong v1 = 0;
@@ -36,34 +36,34 @@ namespace Kata.Classes
                 ulong v = sqrt;
                 ulong nf = 0;
 
-                while (v > 1)
+                while (v > 1UL)
                 {
-                    if (prod % v == 0 && isFibonacci(v))
+                    if (isFibonacci(v))
                     {
                         v1 = v;
                         v2 = prod / v;
 
-                        v = previousFibonacci(v);
+                        if (isFibonacci(v1 + v2) && v1 * v2 == prod)
+                            return new ulong[] { v1, v2, 1 };
 
-                        if (isFibonacci(v1 + v2))
-                            return new ulong[] { v1, v2, 1UL };
 
                         nf = nextFibonacci(v1);
 
                         if (v1 * nf > prod)
                             return new ulong[] { v1, nf, 0 };
 
-                        if (!isFibonacci(v2))
-                            continue;
+                        v1 = nf;
+                        nf = nextFibonacci(nf);
 
-                        nf = nextFibonacci(v2);
+                        if (v1 * nf > prod)
+                            return new ulong[] { v1, nf, 0 };
 
-                        if (v2 * nf > prod)
-                            return new ulong[] { v2, nf, 0 };
-
-                        continue;
+                        v = previousFibonacci(v);
                     }
-                    v--;
+                    else
+                    {
+                        v--;
+                    }
                 }
 
                 return new ulong[] { v, nf, 0 };
@@ -89,7 +89,7 @@ namespace Kata.Classes
 
             private static bool isFibonacci(ulong n)
             {
-                return isPerfectSquare(5 * n * n + 4) || isPerfectSquare(5 * n * n - 4);
+                return isPerfectSquare(5UL * n * n + 4UL) || isPerfectSquare(5UL * n * n - 4UL);
             }
 
             private static Dictionary<int, ulong> FibNumbersUpToValue(ulong maxValue)
@@ -116,7 +116,7 @@ namespace Kata.Classes
             public void Test1()
             {
                 ulong[] r = new ulong[] { 55, 89, 1 };
-                Assert.AreEqual(new ulong[] { 21, 34, 1 }, ProdFib.productFib(714));
+                Assert.AreEqual(new ulong[] { 34, 55, 0 }, ProdFib.productFib(800));
                 Assert.AreEqual(r, ProdFib.productFib(4895));
 
             }
