@@ -35,7 +35,7 @@ namespace Kata.Classes
             val++;
           }
 
-          for (int i = ct2 - 1; i >= c1; i--)
+          for (int i = c2 - 1; i >= c1; i--)
           {
             ret[c2, i] = 1;
             val++;
@@ -48,7 +48,6 @@ namespace Kata.Classes
           }
           ct1 = c1 + 1;
           c1 = c1 + 2;
-          ct2 = c2 - 1;
           c2 = c2 - 2;
         }
         if (n % 2 == 0) ret[n / 2, n / 2 - 1] = 0;
